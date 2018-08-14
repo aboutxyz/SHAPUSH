@@ -25,14 +25,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-		<td></td>
-		<td></td>
-		<td></td>
-      </tr>
+	<meta charset="UTF-8">
+      {% for i in data %}
+		{% for j in i %}
+			<tr>
+				<td>{{ j[4]}}</td>
+				<td>{{ j[3]}}</td>
+				<td>{{ j[5]}}~{{"\"}}</td>
+				<td>{{ j[2]}}</td>
+				<td>{{ j[7]+j[8]}}</td>
+				<td>{{ j[9]+j[10]}}</td>
+			</tr>
+		{% endfor %}
+      {% endfor %}
     </tbody>
 </table>
 </div>
