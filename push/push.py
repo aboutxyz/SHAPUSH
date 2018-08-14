@@ -1,4 +1,5 @@
 #coding:utf-8
+from __future__ import unicode_literals
 import MySQLdb
 from flask import Flask, render_template,request,session
 app = Flask(__name__)
@@ -10,11 +11,11 @@ db = MySQLdb.connect(host='127.0.0.1',user='root',passwd='900502',db='voyagechec
 cursor=db.cursor()
 
 shavessellist = shavessel.split("\n")
-shavessellist = [i.strip() for i in shavessellist]
+shavessellist = filter(None,[i.strip() for i in shavessellist])
 resultslist = []
 for i in shavessellist:
-    actsql = r"select * From sipg1 where id = (select max(id) from sipg1 where trim(replace(VESSELEN, ' ',  ''))=trim(replace(%s,' ','')))" 
-    cursor.execute(actsql,i.lower())
+    actsql = r"select * From sipg1 where id = (select max(id) from sipg1 where trim(replace(VESSELEN, ' ',  ''))=trim(replace(%s,' ','')))"
+    cursor.execute(actsql,(i.lower(),))
     result = cursor.fetchall()
     resultslist.append(result)
 
