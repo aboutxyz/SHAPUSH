@@ -1,0 +1,504 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	港口船期
+</title><link rel="stylesheet" href="SnlStyles/menu.css" type="text/css" /><link rel="stylesheet" href="SnlStyles/commonctrls.css" type="text/css" />
+
+    <script type="text/javascript" src="SnlScripts/base.js"></script>
+    <script type="text/javascript" src="SnlScripts/common.js"></script>
+
+
+    
+    <link href="jQuery-Autocomplete-Port/content/styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="jQuery-Autocomplete-Port/scripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="jQuery-Autocomplete-Port/scripts/jquery.mockjax.js"></script>
+    <script type="text/javascript" src="jQuery-Autocomplete-Port/src/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="jQuery-Autocomplete-Port/scripts/demo.js"></script>
+    
+    
+      
+    <script type="text/javascript" src="artdialog/artDialog.js?skin=default"></script>  
+    <script type="text/javascript" src="artdialog/jquery.artDialog.js?skin=default"></script>
+
+      
+      <link rel="Shortcut Icon" href="favicon.ico" /><link rel="Bookmark" href="favicon.ico" /><meta content="中外运集装箱运输有限公司,中外运集运,sinotrans,sinolines,sinotrans container lines co.,ltd.,http://www.sinolines.com,http://sinolines.com,中外运大厦,定舱,中外运,集装箱船舶,船期查询,货物追踪,承运人,多式联运,国际航运市场,天津分公司,大连分公司,深圳分公司,辽宁分公司,分支代理,航线服务,船期表,航线介绍,进口,出口,中国直达,香港航线,台湾航线,中国韩国航线,中国日本航线,近洋线,外贸内支线,船舶规范,特种箱,冷箱,集装箱规范,堆场,租箱,拆装箱,箱运操作指南,提单,集装箱,运输,码头,港口,上海中外运华东股份有限公司,集运公司,船公司,航运公司,集装箱,中国外运,美国航线,日本航线,韩国航线,国际贸易,对外贸易,上海口岸,船舶,经济发展,操作手册,container,cargo,depot,port,terminal,schedule,B/L,reefer,vessel,booking,tracking,shanghai,booking" name="keywords" /><meta content="中外运集装箱运输有限公司,中外运集运,sinotrans,sinolines,sinotrans container lines co.,ltd.,http://www.sinolines.com" name="description" /></head>
+<body>
+    <form method="post" action="./SchedulePort.aspx" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'BTbyport')" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="lvvTj79dxiHBC34ZGQ81S1kkWrVP7xDHiRDZloj4n8zxz2AcsYsaXJ51KyCHifdFULxfw6eKLaxQnAwjBQ6Fna+rtE2vxDxe4diqqfQWGJefUS3MZRLUeRocOKxEqsjPgAKuTnV+SMUH+sn7ykldq9k/AThquRsXb1JiVq+0pcT/4dvVA0pkOAof+5sdlvdCmjgO93qDof03perJM43wJJzVd98ogrn9DrMPBDSUPBXnUlQSBLtmQhagUeNK3KjQsetuoXxd0VNAWARVn+SdyfouRK9bclwITSQaoaxo1S9Yv8quMv63A/iwNv5QWZh0ctNTDhLDCDOmQFndiiYsNKHCZnjLdNuuNuDPNE64bpf7FdLdtsggnCLAIiI5ghy1drfFNRaUYgSYX94gjQoIOvqOApzPLNccJPB+s4jvQUbZ8QT6vTWJ3RdHeakuEakuYMC+55lFaFBo1phb5KAoyrPa/WvOJmJJ1Di/Ovw9KV4=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/SNLEBUSINESS/WebResource.axd?d=GeEr7NKdqLZRsK5vTqX_wQPwQw1teuvfl45hO1No57rDKCiO1CjKp0SAAkfZcfEuXoY_ieeZ6glTeNEtz5Wrjq7V4uwnhZwAGXhZyJ2HE0s1&amp;t=636477533180000000" type="text/javascript"></script>
+
+
+<script src="/SNLEBUSINESS/WebResource.axd?d=ymzvslYZBmbHudMnrNFjUIL8bqrO_it10yeri5wC5VBsEriDUwyAd5xb1T8tFC5PMqWXewZ79PlL4MpqysBnNZZFtbV9nD3ZH6pO9sfn4VA1&amp;t=636477533180000000" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9D03F755" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="gAYpUMdT50yBriB9Q5WiIyWcZ/w9VqmansCchyfvD4NCDFhEWJQKvVaSwibTmoA6EIaKvJgY15FA1qDH842Tinr16e6eefT1toWvD5V6Yujttk1xE6JSFSOuTBbqdPN1+InMaoo7Tx5DPOkwQDjwJTO91KiqC+0dtfiNF5vlNXYmScmok4rcUWV2ESBf6wPAapVWiPaYBUXCOnb9ZO8OVqFTcllrU26D6mzPqd4qm11FZlz18hYYrA9tJVEWIw5wDYurnWjlRbtWX+dBRDCOYSdzwk9FAhA0/qT0BHPQTq2w/ochih2VeJSYYts0UgMMZdEdXEswXWKPbNRH6tLJrw==" />
+</div>
+        <!-- header -->
+        <table border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="background-repeat: repeat-y; background-position: right; background-image: url(images/bj1_02.jpg)" width="100px"></td>
+                <td width="1100px" style="background-color: #fff">
+                    
+   <div id="top">
+        <div id="banner">
+            <div id="logo"> 
+                <a href="http://www.sinolines.com">
+                    <img src="Images/sinotransebusiness.png" alt="中外运集运Sinolines" /></a>
+            </div>
+        </div>
+        <div  class="cl"> 
+             <input type="submit" name="header1$WelcomeBT" value="Welcome 【LYNBYY】" id="header1_WelcomeBT" class="cl" />
+             
+             
+             <input type="submit" name="header1$EnglishBT" value="【ENGLISH】" id="header1_EnglishBT" class="cl" /> 
+             <input type="submit" name="header1$ExitBT" value="【退出】" id="header1_ExitBT" class="cl" />
+     <span id="liveclock" ></span>
+           	<SCRIPT  type="text/javascript">
+            	    function www_helpor_net() {
+            	        var Now = new Date()
+            	        var hours = Now.getHours()
+            	        var minutes = Now.getMinutes()
+            	        var seconds = Now.getSeconds()
+            	        var day = Now.getDate()
+            	        var month = Now.getMonth() + 1
+            	        var year = Now.getFullYear()
+            	        var weekday=""
+
+            	        if (minutes <= 9)
+            	            minutes = "0" + minutes
+            	        if (seconds <= 9)
+            	            seconds = "0" + seconds
+
+
+            	        if (month == 1) month = "Jan";
+            	        if (month == 2) month = "Feb";
+            	        if (month == 3) month = "Mar";
+            	        if (month == 4) month = "Apr";
+            	        if (month == 5) month = "May";
+            	        if (month == 6) month = "Jun";
+            	        if (month == 7) month = "Jul";
+            	        if (month == 8) month = "Aug";
+            	        if (month == 9) month = "Sep";
+            	        if (month == 10) month = "Oct";
+            	        if (month == 11) month = "Nov";
+            	        if (month == 12) month = "Dec";
+
+            	        if (Now.getDay() == 0) weekday = "Sun.";
+            	        if (Now.getDay() == 1) weekday = "Mon.";
+            	        if (Now.getDay() == 2) weekday = "Tues.";
+            	        if (Now.getDay() == 3) weekday = "Wed.";
+            	        if (Now.getDay() == 4) weekday = "Thur.";
+            	        if (Now.getDay() == 5) weekday = "Fri.";
+            	        if (Now.getDay() == 6) weekday = "Sat.";
+
+            	        // myclock = "<font  style='color:#003399;FONT-SIZE: 9pt;font-family:Arial'>TIME:" + year + "年" + month + "月" + day + "日 " + hours + ":" + minutes + ":" + seconds + weekday + "</font>"
+            	        myclock = "<font  Class='cl'>Now: " + weekday + " " + month + " " + day + " " + year + "  " + hours + ":" + minutes + ":" + seconds + "</font>"
+                        
+            	       // myclock = "<font  style='color:#003399;FONT-SIZE: 9pt;font-family:Arial'>TIME:" + year + "年" + month + "月" + day + "日 " + hours + ":" + minutes + ":" + seconds + weekday + "</font>"
+            	       // myclock = "<font  Class='cl'>TIME:" + year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds + weekday + "</font>"
+            	        if (document.layers) {
+            	            document.layers.liveclock.document.write(myclock)
+            	            document.layers.liveclock.document.close()
+            	        } else if (document.all)
+            	            liveclock.innerHTML = myclock
+            	        setTimeout("www_helpor_net()", 1000)
+            	    }
+            	    www_helpor_net();            	  
+				</SCRIPT>
+        </div>
+        <div id="menu">
+            <ul id="nav">
+                <li><a href="Default.aspx">网站首页</a> </li>
+                <li><a href="#" >货物追踪</a>
+                      <div class="sub-nav" style="display: none;">
+                        <ul class="box">
+                            <li><a href="TrackingByBlno.aspx" title="Tracking" >货物追踪</a> </li>        
+                              <li><a href="QueryContainer.aspx" title="Container Specification" >集装箱规范查询</a></li>                                           
+                          <li><a href="QueryVessel.aspx" title="Vessel Particulars" >实时船位</a></li>  
+                                                      
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">船期查询</a>
+                    <div class="sub-nav" style="display: none;">
+                        <ul class="box">                        
+<li><a href="SchedulePort.aspx" title="Schedule">港口船期</a></li>   
+<li><a href="ScheduleVessel.aspx" title="Schedule">船名船期</a></li>
+                              <li><a href="ScheduleActive.aspx"  title="Schedule">港到港船期</a></li>
+                             
+                             <li><a href="QueryVessel.aspx" title="Vessel Particulars" >船舶规范</a></li>         
+                             <li><a href="QueryServiceID.aspx" title="Services"  >服务路径查询</a></li> 
+                              <li><a href="http://www.sinolines.com/col/col4933/index.html"  target="_blank">自营船每日动态</a></li>                    
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">费率与费用</a>
+                    <div class="sub-nav" style="display: none;">
+                        <ul class="box">
+                          <li><a href="QueryRateSurcharge.aspx" title="Surcharge">附加费费率</a></li>                            
+                            <li><a href="QueryPaymentSurcharge.aspx" title="Surcharge Default Payment">附加费付款方式<img src="SnlImages/lock4.png"  /></a> </li>
+                             <li><a href="http://www.sinolines.com/col/col194/index.html" title="DEM/DET Tariff" target="_blank">滞箱(期)费费率</a></li>
+                              <li><a href="EBookingFRTReport.aspx" title="Charge List">出口运费账单<img src="SnlImages/lock4.png"  /></a> </li>  
+                             <li><a href="QueryImportCharge.aspx" title="Import Charge">进口费用查询</a>  </li>   
+                               <li><a href="QueryDETCharge.aspx" title="Detention Charge">箱管费用查询</a></li>  
+                             <li><a href="EInvoiceCharge.aspx" title="Invoice Charge">发票费用清单查询<img src="SnlImages/lock4.png"  /></a></li>  
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">出口</a>
+                    <div class="sub-nav" style="display: none;">
+                        <ul class="box">                   
+                                <li><a href="EBookingRequest.aspx?op=request" title="Booking">出口订舱<img src="SnlImages/lock4.png"  /></a> </li>
+                              <li><a href="EBookingRequest.aspx?op=maintain" title="Booking">订舱编辑<img src="SnlImages/lock4.png"   /></a> </li>
+                            <li><a href="EBookingSignApply.aspx" title="Sign Apply">签单要求<img src="SnlImages/lock4.png"    /></a> </li>
+                            <li><a href="EBookingSplitCombine.aspx" title="SplitCombine">拆并提单<img src="SnlImages/lock4.png"   /></a> </li>                                                         
+                             <li><a href="EContainerEdit.aspx" title="Container">箱号编辑<img src="SnlImages/lock4.png"  /></a> </li> 
+                              <li><a href="EContainerVGM.aspx" title="VGM">VGM编辑<img src="SnlImages/lock4.png"    /></a> </li>
+                             <li><a href="EBookingQuerys.aspx">订舱特殊查询<img src="SnlImages/lock4.png"   /></a> </li> 
+                                <li><a href="EBookingReport.aspx" title="Report">统计与报表<img src="SnlImages/lock4.png"   /></a> </li>
+                            <li><a href="EBookingConfirm.aspx" title="Check">订舱查询与确认<img src="SnlImages/lock4.png"    /></a> </li>                            
+                             <li><a href="EBookingPrint.aspx" title="Print">提单打印<img src="SnlImages/lock4.png"   /></a> </li>                           
+                                 <li><a href="EBookingSelfRelease.aspx" >自助电放<img src="SnlImages/lock4.png" alt=""  /></a></li> 
+                             <li><a href="EDICMSSUMDownload.aspx" title="CMSSUM Download" >EDI舱单导出<img src="SnlImages/lock4.png"   /></a> </li>
+                               <li><a href="EdiIFTMBFUpload.aspx" title="IFTMBF Upload">EDI预订舱<img src="SnlImages/lock4.png"   /></a> </li>
+                              <li><a href="NetEDIOV.aspx" title="EDI" >EDI介绍</a></li>
+                               <li><a href="ECargoCntrEdit.aspx" title="Cargo Container Edit">货内箱维护<img src="SnlImages/lock4.png"   /></a> </li>            
+                        </ul>
+                    </div>
+                </li>            
+                   <li><a href="#">进口</a>
+                    <div class="sub-nav" style="display: none;">
+                        <ul class="box"> 
+                               <li><a href="QueryImportCharge.aspx" title="Import Charge">进口费用查询</a>  </li>   
+                             <li><a href="EDownloadGuarantee_TelexIM.aspx">进口电放证明</a></li>   
+                              <li><a href="QueryDepositCharge.aspx">进口押箱押金计算</a></li>
+                                   <li><a href="EDownloadGuarantee_ChargeBoxIM.aspx">进口押箱保函</a></li>                                                     
+                    </ul>
+                    </div>
+                </li>
+            <li><a href="#">箱管</a>
+                    <div class="sub-nav" style="display: none;">
+                        <ul class="box">                                          
+                            <li><a href="EDemDetsApply.aspx">滞箱费减免申请<img src="SnlImages/lock4.png"  /></a></li>
+                            <li><a href="EDemDetsQuery.aspx">滞箱费减免查询<img src="SnlImages/lock4.png"   /></a> </li>
+                            <li><a href="ESpecialCargoApply.aspx" title="Special Cargo">特种箱申请<img src="SnlImages/lock4.png"  /></a></li>                         
+                              <li><a href="EReleaseCntr_TJEX.aspx">出口放箱<img src="SnlImages/lock4.png" alt=""  /></a></li>
+                              <li><a href="EReleaseCntrQuery.aspx">出口放箱查询<img src="SnlImages/lock4.png" alt=""  /></a></li>
+                              <li><a href="EReleaseCntrQuery_IM.aspx">进口放箱查询<img src="SnlImages/lock4.png" alt=""  /></a></li>
+                              <li><a href="EStufflocForQuery.aspx" title="Depot Query" >场站操作<img src="SnlImages/lock4.png"   /></a></li>          
+                             <li><a href="EStufflocForChange.aspx" title="Depot Change">提箱点变更<img src="SnlImages/lock4.png"  /></a></li>  
+                        </ul>
+                    </div>
+                </li>                 
+                  <li class="nav_r"><a href="#">多式联运</a>
+                    <div class="sub-nav" style="display: none;">
+                        <ul class="box"> 
+                              <li><a href="EMTForDeclaration.aspx">出口报关<img src="SnlImages/lock4.png"   /></a> </li> 
+                             <li><a href="EMTIMForAgent.aspx">进口代理<img src="SnlImages/lock4.png"   /></a> </li>     
+                              <li><a href="EMTIMForCarrier.aspx">进口支线<img src="SnlImages/lock4.png"   /></a> </li>    
+                             <li><a href="EMTIMForDeclaration.aspx">进口报关<img src="SnlImages/lock4.png"   /></a> </li> 
+                              <li><a href="EMTChangeVessel.aspx">联运二程修改<img src="SnlImages/lock4.png"   /></a> </li>  
+                              <li><a href="EBookingQueryForTopAgent.aspx">联运一代查询<img src="SnlImages/lock4.png"   /></a> </li>                                        
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav_r"><a href="#">信息与指南</a>
+                    <div class="sub-nav" style="display: none;">
+                        <ul class="box"> 
+                              <li><a href="NetQINGDAO.aspx"><font color="red" >青岛网上营业厅</font> </a></li>
+                            <li><a href="NetTIANJIN.aspx""><font color="red" >天津网上营业厅</font></a></li>
+                            <li><a href="NetFAQS.aspx">常见问题</a></li>
+                            <li><a href="NetOperatorGuide.aspx" title="Guide">操作指南</a></li>
+                              <li><a href="http://www.sinolines.com/col/col184/index.html"  target="_blank" >各地网点</a></li>                         
+                             <li><a href="http://www.sinolines.com/col/col4773/index.html"  target="_blank" >保函格式</a></li>
+                               <li><a href="http://booking.sinolines.net/webcontainer/"  target="_blank" >LTS下载</a></li> 
+                              <li><a href="MyFeedBack.aspx" >客户反馈</a></li>                           
+                        </ul>
+                    </div>
+                </li>
+              
+            </ul>
+        </div>
+    </div>
+                </td>
+                <td style="background-repeat: repeat-y; background-position: left; background-image: url(images/bj1_04.jpg)" width="100px"></td>
+            </tr>
+        </table>
+        <!-- end header -->
+
+        <!-- content -->
+        <table border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="background-repeat: repeat-y; background-position: right; background-image: url(images/bj1_02.jpg)" width="100px"></td>
+                <td width="1100" height="690">
+                    <!-- main -->
+                    <div class="main">
+                        <div class="banner">
+                            <div id="titlebox">
+                                <img alt="Schedule" src="Images/list_netscheduleport.gif" /><a href="download/guide_schedule.pdf" target="_blank" ><img src="Images/guide.gif"  alt="guide"  /></a>
+                            </div>
+                        </div>
+                        <div class="content_box">
+
+                            <table border="0" id="main_table_center">
+                                <tr>
+                                    <td width="100%">
+                                        <div class="Alldiv divtextboxleft">
+                                            【港口船期】请输入港口英文全称，选择列表中的一个港口，以及选择预计离泊的时间区间(60天内)，然后点击“查询”。实际船期以港方或码头公布的信息为准。   
+                                            <br />                                                                         
+                                            &nbsp;                                                                         
+                                            备注：Arrival Time/到港时间;Berthing Time/靠泊时间;UnBerthing Time/离泊时间;Departure Time/离港时间。                                                                     
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="1100">
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="multi_table_booking">
+                                            <colgroup>
+                                                <col style="width: 12%" />
+                                                <col style="width: 35%" />
+                                                <col style="width: 12%" />
+                                                <col style="width: 30%" />
+                                                <col />
+                                            </colgroup>
+
+                                            <tr>
+                                                <th>origin</th>
+                                                <td>
+                                                    <input name="autocomplete" type="text" id="autocomplete" title="Origin" style="width: 300px" class="textbox" /></td>
+                                                <th>Mode</th>
+                                                <td>
+                                                    <span id="ModeRBL" style="display:inline-block;border-style:None;font-size:10pt;"><input id="ModeRBL_0" type="radio" name="ModeRBL" value="all" checked="checked" /><label for="ModeRBL_0">  包括支线船舶  </label><input id="ModeRBL_1" type="radio" name="ModeRBL" value="vsl" /><label for="ModeRBL_1">  仅适用干线船舶  </label></span>
+                                                </td>
+                                              
+                                                
+                                            </tr>
+                                            <tr>  <th>
+                                                    <label for="">Period</label></th>
+                                                <td>
+                                                    <input name="Calendarfromtime" type="text" value="2018-08-14" id="Calendarfromtime" style="border-color:Black;border-width:1px;border-style:Solid;height:22px;width:90px;" /><span><input type="button" id="ButtonCalendarfromtime" value="" onclick="document.getElementById('Calendarfromtime_Calendar').style.display='block';" style="background-image:url('images/cal3.jpg');background-repeat: no-repeat;border:0pt solid black;height:20px;width:23px" /></span><iframe id="Calendarfromtime_Calendar" src="/SNLEBUSINESS/Codefan-Controls/Calendar/calendar.htm?Calendarfromtime" scrolling='no' onclick="alert('aaaaaaaaaa');" frameborder='0' style='position:absolute;border:0;display:none;width:210px;height:175px;border:1px solid #335599;'></iframe>
+                                                    ~  
+                                                    <input name="Calendartotime" type="text" value="2018-08-21" id="Calendartotime" style="border-color:Black;border-width:1px;border-style:Solid;height:22px;width:90px;" /><span><input type="button" id="ButtonCalendartotime" value="" onclick="document.getElementById('Calendartotime_Calendar').style.display='block';" style="background-image:url('images/cal3.jpg');background-repeat: no-repeat;border:0pt solid black;height:20px;width:23px" /></span><iframe id="Calendartotime_Calendar" src="/SNLEBUSINESS/Codefan-Controls/Calendar/calendar.htm?Calendartotime" scrolling='no' onclick="alert('aaaaaaaaaa');" frameborder='0' style='position:absolute;border:0;display:none;width:210px;height:175px;border:1px solid #335599;'></iframe>
+                                                    (YYYY-MM-DD)</td>
+                                                <td colspan="2"> <input type="submit" name="BTbyport" value="查 询" id="BTbyport" class="buttonface" style="width:80px;" />	</td>
+                                            </tr>
+                                         
+                                        </table>
+                                    </td>
+                                </tr>                             
+                                <tr>
+                                    <td>
+                                        
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div>
+
+</div>                                       
+                                    </td>
+                                </tr>
+                               
+
+                            </table>
+                        </div>
+                    </div>
+                 
+                    <!------end main ------>
+                </td>
+                <td style="background-repeat: repeat-y; background-position: left; background-image: url(images/bj1_04.jpg)" width="100px"></td>
+            </tr>
+        </table>
+        <!--end content -->
+
+        <!-- footer  -->
+        <table border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="100px" style="background-repeat: repeat-y; background-position: right; background-image: url(images/bj1_02.jpg);"></td>
+                <td width="1100px" class="white1">
+                    <!-- footer uc -->
+                    
+<style type="text/css">
+    /*与SNL主页footer风格一致*/
+
+    .footer {
+        width: 1100px;/* width: 1002px;*/
+          color: #3D3D3D;
+        /*color: #fff;*/
+        text-align: center;
+        line-height: normal;
+       /*background-color: #4b6c9e;*/
+        background-color: #fff;
+        margin: 0px auto 10px auto;
+        border-top:1px solid  #e5e5e5 ;      
+        padding: 5px 0px 5px 0px;
+        font-family: Arial,Verdana,sans-serif;
+    }
+
+
+
+    #copyline1 {
+        width: 1002px;
+        margin: 0 auto 0;
+        text-align: center;
+        padding: 5px 0 0 0;
+    }
+
+        #copyline1 li {
+            display: inline; /*横着显示 */
+            font: 12px Arial, Helvetica, sans-serif;
+            /*color: black;*/
+            border-left: 1px solid #3D3D3D; /* 列表直接用竖线 | 分割 */
+            padding: 0 10px 0 10px;
+            background: 0;
+            margin: 0;
+        }
+
+            #copyline1 li a {
+                  color: #3D3D3D;
+                /*color: #ffffff;*/ /*链接显示bai色，否则默认是蓝色*/
+                text-decoration: none;
+            }
+
+        #copyline1 a:hover {
+            color: #ff6a00;
+        }
+
+        #copyline1 li:first-child,
+        #copyline1 li.first-child {
+            border-left: none; /* 第一个没有分割线 */
+        }
+
+    /* 第二行版权 重复 */
+    #copyline2 {
+        width: 1002px;
+        margin: 0 auto 0;
+        text-align: center;
+        padding: 5px 0 0 0;
+    }
+
+        #copyline2 li {
+            display: inline; /*横着显示 */
+            font: 12px Arial, Helvetica, sans-serif;
+              color: #3D3D3D;
+            /*color: #ffffff;*/
+            border-left: 1px solid #808080; /* 列表直接用竖线 | 分割 */
+            padding: 0 10px 0 10px;
+            background: 0;
+            margin: 0;
+        }
+
+            #copyline2 li a {
+                /*color: black;*/ /*链接显示黑色，否则默认是蓝色*/
+            }
+
+            #copyline2 li:first-child,
+            #copyline2 li.first-child {
+                border-left: none; /* 第一个没有分割线 */
+            }
+</style>
+
+
+<div class="footer" style="font-size: 12pt">
+    <ul id="copyline1">
+        <li><a href="http://www.sinolines.com/col/col1009/index.html" target="_blank">法律声明</a></li>
+        <li><a href="http://www.sinolines.com/col/col199/index.html" target="_blank">联系我们</a></li>
+        <li><a href="http://weibo.com/sinolines" target="_blank">官方微博</a></li>
+        <li><a href="http://www.sinolines.com/col/col1399/index.html" target="_blank">网站地图</a></li>
+        <li><a href="http://mail.sinolines.com:6080/" target="_blank">员工邮箱</a></li>
+    </ul>
+    <ul id="copyline2">
+        <li>中外运集装箱运输有限公司 版权所有 沪ICP备15023772号 Copyright &copy; 2002-2018 <a href="http://www.sinolines.com" >www.sinolines.com</a> All Rights Reserved</li>
+    </ul>
+</div>
+
+                    <!-- end uc -->
+                </td>
+                <td width="100px" style="background-repeat: repeat-y; background-position: left; background-image: url(images/bj1_04.jpg);"></td>
+            </tr>
+            <tr>
+                <td style="background-repeat: repeat-y; background-position: right; background-image: url(images/bj1_11.jpg)" width="100px"></td>
+                <td width="1100px" height="30" style="background-image: url(images/bj1_12.jpg)"></td>
+                <td style="background-repeat: repeat-y; background-position: left; background-image: url(images/bj1_14.jpg)" width="100px"></td>
+            </tr>
+        </table>
+        <!-- end footer -->
+    
+
+<script type="text/javascript">
+//<![CDATA[
+
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+WebForm_AutoFocus('BTbyport');//]]>
+</script>
+</form>
+
+    <!-- start go to top  -->
+<script type="text/javascript">
+    function goTopEx() {
+        var obj = document.getElementById("goTopBtn");
+        function getScrollTop() {
+            return document.documentElement.scrollTop + document.body.scrollTop;
+        }
+        function setScrollTop(value) {
+            if (document.documentElement.scrollTop) {
+                document.documentElement.scrollTop = value;
+            } else {
+                document.body.scrollTop = value;
+            }
+        }
+        window.onscroll = function () {
+            getScrollTop() > 0 ? obj.style.display = "" : obj.style.display = "none";
+        }
+        obj.onclick = function () {
+            var goTop = setInterval(scrollMove, 10);
+            function scrollMove() {
+                setScrollTop(getScrollTop() / 1.1);
+                if (getScrollTop() < 1) clearInterval(goTop);
+            }
+        }
+    }
+</script> 
+  <div style="display: none" id="goTopBtn"  class="goTopBtn"><img border="0" alt="Go To TOP" src="images/totopblue.png" /></div> 
+<script type="text/javascript">goTopEx();</script> 
+     <!-- end go to top -->
+
+</body>
+</html>
+
+
+

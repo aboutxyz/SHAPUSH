@@ -32,7 +32,7 @@ UserAgent_List = [
 ]
 #headers = {"Accept":"*/*",'User-Agent': random.choice(UserAgent_List),}
 agent = random.choice(UserAgent_List)
-url = "http://ebusiness.sinolines.com.cn/snlebusiness/Default.aspx"
+loginurl = "http://ebusiness.sinolines.com.cn/snlebusiness/Default.aspx"
 vesselurl = "http://ebusiness.sinolines.com.cn/snlebusiness/SchedulePort.aspx"
 
 class GetLoginSHAVessel:
@@ -62,9 +62,9 @@ class GetLoginSHAVessel:
         postdata={"__EVENTTARGET":"",
         "__EVENTARGUMENT":"",
         "__LASTFOCUS":"",
-        "__VIEWSTATEGENERATOR":self.get__VIEWSTATEGENERATOR(url),
-        "__VIEWSTATE":self.get__VIEWSTATE(url),
-        "__EVENTVALIDATION":self.get__EVENTVALIDATION(url),
+        "__VIEWSTATEGENERATOR":self.get__VIEWSTATEGENERATOR(loginurl),
+        "__VIEWSTATE":self.get__VIEWSTATE(loginurl),
+        "__EVENTVALIDATION":self.get__EVENTVALIDATION(loginurl),
         "dl_seltype":"blno",
         "CargoTrackingBLNOTB":"",
         "autocomplete":"",
@@ -78,52 +78,81 @@ class GetLoginSHAVessel:
         "VslModeRBL":"vsl",
         "dlallvsl":"",
         "TxtVoy":"",
-        "TBUsername":"LYNBAGT",
+        "TBUsername":"LYNBYY",
         "TBPassword":"123",
         "BTLogin":"µÇ Â¼"}
-        r= self.s.post(url,data=postdata,headers = self.s.headers)
+        r= self.s.post(loginurl,data=postdata)
+        with open("test1.txt","wb+")as f:
+            f.write(r.content)
      
 
     def get_VIEWSTATEGENERATOR(self,url):
-        r = self.s.post(vesselurl)
+        r = self.s.post(url)
         VIEWSTATE =re.findall(r'<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="(.*?)" />', r.content,re.I)
         return VIEWSTATE[0]
         
+    def get__VIEWSTATE2(self,url):
+        r = self.s.post(url)
+        VIEWSTATE =re.findall(r'<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="(.*?)" />', r.content,re.I)
+        return VIEWSTATE[0]
+        
+        
     def get__SCROLLPOSITIONX(self,url):
-        r = self.s.post(vesselurl)
+        r = self.s.post(url)
         VIEWSTATE =re.findall(r'<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="(.*?)" />', r.content,re.I)
         return VIEWSTATE[0]
         
     def get__SCROLLPOSITIONY(self,url):
-        r = self.s.post(vesselurl)
+        r = self.s.post(url)
         VIEWSTATE =re.findall(r'<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="(.*?)" />', r.content,re.I)
         return VIEWSTATE[0]
         
     def get__EVENTVALIDATION2(self,url):
-        r = self.s.post(vesselurl)
+        r = self.s.post(url)
         VIEWSTATE =re.findall(r'<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="(.*?)" />', r.content,re.I)
         return VIEWSTATE[0]
+        
+        
+    def get__alldata(self,url):
+        aheaders = {"Connection":"keep-alive","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","Host":"ebusiness.sinolines.com.cn","Origin":"http://ebusiness.sinolines.com.cn","Referer":"http://ebusiness.sinolines.com.cn/snlebusiness/SchedulePort.aspx","Upgrade-Insecure-Requests":"1",'User-Agent': agent,}
+        r = self.s.post(url,headers = aheaders)
+        __VIEWSTATE =re.findall(r'<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="(.*?)" />', r.content,re.I)
+        __VIEWSTATEGENERATOR =re.findall(r'<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="(.*?)" />', r.content,re.I)
+        __EVENTVALIDATION =re.findall(r'<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="(.*?)" />', r.content,re.I)
+        return __VIEWSTATE[0],__VIEWSTATEGENERATOR[0],__EVENTVALIDATION[0],r.content
+        
 
     
     def feed(self, args):
-        self.s.headers={"Connection":"keep-alive","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","Content-Type":"application/x-www-form-urlencoded","Host":"ebusiness.sinolines.com.cn","Origin":"http://ebusiness.sinolines.com.cn","Referer":"http://ebusiness.sinolines.com.cn/snlebusiness/SchedulePort.aspx","Upgrade-Insecure-Requests":"1",'User-Agent': agent,}
+        self.s.headers={"Connection":"keep-alive","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","Host":"ebusiness.sinolines.com.cn","Origin":"http://ebusiness.sinolines.com.cn","Referer":"http://ebusiness.sinolines.com.cn/snlebusiness/SchedulePort.aspx","Upgrade-Insecure-Requests":"1",'User-Agent': agent,}
         #self.s.headers.update({'Referer': 'http://ebusiness.sinolines.com.cn/snlebusiness/SchedulePort.aspx'})
-        postdata={#"__EVENTTARGET":"",
-        #"__EVENTARGUMENT":"",
-        #"__VIEWSTATE":"",
-        "__VIEWSTATEGENERATOR":self.get_VIEWSTATEGENERATOR(vesselurl),
-        "__SCROLLPOSITIONX":self.get__SCROLLPOSITIONX(vesselurl),
+        
+        aa = self.get__alldata(vesselurl)
+        with open("test2.txt","wb+")as f:
+            f.write(aa[3])
+        
+        postdata={"__EVENTTARGET":"",
+        "__EVENTARGUMENT":"",
+        #"__VIEWSTATE":self.get__VIEWSTATE2(vesselurl),
+        "__VIEWSTATE":aa[0],
+        #"__VIEWSTATEGENERATOR":self.get_VIEWSTATEGENERATOR(vesselurl),
+        "__VIEWSTATEGENERATOR":aa[1],
+        #"__SCROLLPOSITIONX":self.get__SCROLLPOSITIONX(vesselurl),
+        "__SCROLLPOSITIONX":0,
         #"__SCROLLPOSITIONY":self.get__SCROLLPOSITIONY(vesselurl),
         "__SCROLLPOSITIONY":292,
-        #"__VIEWSTATEENCRYPTED":"",
-        "__EVENTVALIDATION":self.get__EVENTVALIDATION2(vesselurl),
-        "autocomplete":"SHANGHAI , CHINA (CNSHA)",
+        "__VIEWSTATEENCRYPTED":"",
+        #"__EVENTVALIDATION":self.get__EVENTVALIDATION2(vesselurl),
+        "__EVENTVALIDATION":aa[2],
+        "autocomplete":"CNSHA",
         "ModeRBL":"vsl",
-        "Calendarfromtime":"2018-08-12",
-        "Calendartotime":"2018-08-19",
+        "Calendarfromtime":"2018-08-14",
+        "Calendartotime":"2018-08-21",
         "BTbyport":"²é Ñ¯"}
+        print postdata
         r= self.s.post(vesselurl,data=postdata)
-        print r.content
+        with open("test.txt","wb+")as f:
+            f.write(r.content)
         resultlist = []
         recheck = re.compile(r'RowIndex="(.*?)" href="(.*?)">(.*?)</a>',re.I)
         resulta = recheck.findall(r.content)
@@ -135,7 +164,6 @@ class GetLoginSHAVessel:
         
 p=GetLoginSHAVessel()
 p.login("x")
-print "one step ok"
 time.sleep(3)
 with open("shavessel.txt","wb")as f:
     for i in p.feed('x'):
