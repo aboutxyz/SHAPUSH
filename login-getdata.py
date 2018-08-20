@@ -5,6 +5,7 @@ import requests
 import random
 import re
 import time
+import datetime
 import sys 
 reload(sys) 
 sys.setdefaultencoding("utf-8")
@@ -82,8 +83,6 @@ class GetLoginSHAVessel:
         "TBPassword":"123",
         "BTLogin":"µÇ Â¼"}
         r= self.s.post(loginurl,data=postdata)
-        with open("test1.txt","wb+")as f:
-            f.write(r.content)
      
 
     def get_VIEWSTATEGENERATOR(self,url):
@@ -128,8 +127,12 @@ class GetLoginSHAVessel:
         #self.s.headers.update({'Referer': 'http://ebusiness.sinolines.com.cn/snlebusiness/SchedulePort.aspx'})
         
         aa = self.get__alldata(vesselurl)
-        with open("test2.txt","wb+")as f:
-            f.write(aa[3])
+        
+        nowweekday = datetime.date.today().weekday()
+        lastsunday = datetime.date.today()+datetime.timedelta(days=-1-nowweekday) 
+        nextsunday = datetime.date.today()+datetime.timedelta(days=6-nowweekday)
+        lastsunday = lastsunday.strftime("%Y-%m-%d")
+        nextsunday = nextsunday.strftime("%Y-%m-%d")
         
         postdata={"__EVENTTARGET":"",
         "__EVENTARGUMENT":"",
@@ -146,8 +149,8 @@ class GetLoginSHAVessel:
         "__EVENTVALIDATION":aa[2],
         "autocomplete":"CNSHA",
         "ModeRBL":"vsl",
-        "Calendarfromtime":"2018-08-14",
-        "Calendartotime":"2018-08-21",
+        "Calendarfromtime":lastsunday,
+        "Calendartotime":nextsunday,
         "BTbyport":"²é Ñ¯"}
         r= self.s.post(vesselurl,data=postdata)
         resultlist = []
