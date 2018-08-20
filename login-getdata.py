@@ -149,10 +149,7 @@ class GetLoginSHAVessel:
         "Calendarfromtime":"2018-08-14",
         "Calendartotime":"2018-08-21",
         "BTbyport":"²é Ñ¯"}
-        print postdata
         r= self.s.post(vesselurl,data=postdata)
-        with open("test.txt","wb+")as f:
-            f.write(r.content)
         resultlist = []
         recheck = re.compile(r'RowIndex="(.*?)" href="(.*?)">(.*?)</a>',re.I)
         resulta = recheck.findall(r.content)
@@ -167,6 +164,6 @@ p.login("x")
 time.sleep(3)
 with open("shavessel.txt","wb")as f:
     for i in p.feed('x'):
-        f.write(i)
+        f.write(i+"\r\n")
     
         
