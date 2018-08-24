@@ -82,12 +82,23 @@ class GetSHAVessel:
         "BTbyport":"查 询"}
         r= self.s.post(url,data=postdata,headers = headers,cookies=get_cookie())
         resultlist = []
-        recheck = re.compile(r'RowIndex="(.*?)" href="(.*?)">(.*?)</a>',re.I)
-        resulta = recheck.findall(r.content)
+        resultdict = {}
+        revname = re.compile(r'RowIndex="(.*?)" href="(.*?)">(.*?)</a>',re.I)
+        resulta = revname.findall(r.content)
         for i in range(len(resulta)):
             result = resulta[i][2].split("/")[0]
             resultlist.append(result)
+        
+        reveta = re.compile(r'ScheduleByportGridView_ATAL_(.*?)">(.*?)</span>',re.I)
+        resulta = reveta.findall(r.content)    
+        
         return resultlist
+
+
+<span id="ScheduleByportGridView_ATAL_0" style="color:Blue;">2018/8/22 12:00:00(P)</span>
+<span id="ScheduleByportGridView_ATBL_0" style="color:Blue;">2018/8/22 16:00:00(P)</span>
+<span id="ScheduleByportGridView_ATDL_0" style="color:Blue;">2018/8/23 13:00:00(P)</span>
+
         
         
 p=GetSHAVessel()
