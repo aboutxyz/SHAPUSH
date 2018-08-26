@@ -7,6 +7,7 @@ import re
 import time
 import datetime
 import sys 
+import MySQLdb
 reload(sys) 
 sys.setdefaultencoding("utf-8")
 
@@ -153,20 +154,59 @@ class GetLoginSHAVessel:
         "Calendartotime":nextsunday,
         "BTbyport":"查 询"}
         r= self.s.post(vesselurl,data=postdata)
-        resultlist = []
-        recheck = re.compile(r'RowIndex="(.*?)" href="(.*?)">(.*?)</a>',re.I)
-        resulta = recheck.findall(r.content)
-        for i in range(len(resulta)):
-            result = resulta[i][2].split("/")[0]
-            resultlist.append(result)
-        return resultlist
+        resultdict = {}
         
+        revname = re.compile(r'RowIndex="(.*?)" href="(.*?)">(.*?)</a>',re.I)
+        result_name = revname.findall(r.content)
+        resultname = [i[2].split("/")[0] for i in result_name]
+        
+        resultvoyage = [i[2].split("/")[1] for i in result_name]
+        resultexvoyage = [i.split("  ")[0] for i in resultvoyage]
+        resultimvoyage = [i.split("  ")[1] for i in resultvoyage]
+        
+        #中文船名用空格填充
+        resultnamecn = [" " ]*len(resultname)
+        _status = [" " ]*len(resultname)
+        _atb = [" " ]*len(resultname)
+        _atd = [" " ]*len(resultname)
+        
+        revterminal = re.compile(r'ScheduleByportGridView_TERMINALH(.*?) target="_blank">(.*?)</a>',re.I)
+        resultterminal = revterminal.findall(r.content)
+        resultterminal = [i[1] for i in resultterminal]
+        
+        reveta = re.compile(r'ScheduleByportGridView_ATAL_(.*?)">(.*?)</span>',re.I)
+        resulteta = reveta.findall(r.content)
+        resulteta = [i[1] for i in resulteta]
+        
+        revetb = re.compile(r'ScheduleByportGridView_ATBL_(.*?)">(.*?)</span>',re.I)
+        resultetb = revetb.findall(r.content)
+        resultetb = [i[1] for i in resultetb]
+        
+        revetd = re.compile(r'ScheduleByportGridView_ATDL_(.*?)">(.*?)</span>',re.I)
+        resultetd = revetd.findall(r.content)
+        resultetd = [i[1] for i in resultetd]
+        #这里搞清楚ETA和ETB
+        result = zip(_status,resultterminal,resultnamecn,resultname,resultimvoyage,resultexvoyage,resultetb,_atb,resultetd,_atd,resulteta)
+        
+        db = MySQLdb.connect(host='127.0.0.1',user='root',passwd='900502',db='voyagecheck',port=3306,charset='utf8')
+        cursor=db.cursor()
+        #实际数据就需要英文船名，中文船名，进口航次，出口航次，码头，ETA,ETB,ETU
+        for i in result:
+            try:
+                actsql = "INSERT INTO snlvessel(STATUS,MATOU,VESSELCN,VESSELEN,IMVOYAGE,EXVOYAGE,ETA,ATA,ETD,ATD,ETASNL) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                cursor.execute(actsql,(i))
+                db.commit()
+            except:
+                db.rollback()
+        db.close()
+        
+        return resultname,resulteta
+      
         
 p=GetLoginSHAVessel()
 p.login("x")
 time.sleep(3)
 with open("shavessel.txt","wb")as f:
-    for i in p.feed('x'):
+    for i in p.feed('x')[0]:
         f.write(i+"\r\n")
-    
         
