@@ -69,14 +69,14 @@ def index():
     resultall = []
     for i in zip(resultslist1,resultslist2):
         if i[0]:
-            if i[0][0][5]==i[1][0][5]:
+            if i[0][0][6]==i[1][0][6][1:]:
                 _temp = list(i[0][0],)
                 _temp.append(i[1][0][-1])
                 resultall.append(_temp)
             else:
-                _temp = list(i[0][0],)
-                _temp.append("")
-                resultall.append(_temp)
+                _temp1 = list(i[0][0],)
+                _temp1.append("")
+                resultall.append(_temp1)
         else:
             resultall.append(list(i[1][0]))
     

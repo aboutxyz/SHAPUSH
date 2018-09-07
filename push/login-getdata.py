@@ -131,7 +131,7 @@ class GetLoginSHAVessel:
         
         nowweekday = datetime.date.today().weekday()
         lastsunday = datetime.date.today()+datetime.timedelta(days=-1-nowweekday) 
-        nextsunday = datetime.date.today()+datetime.timedelta(days=6-nowweekday)
+        nextsunday = datetime.date.today()+datetime.timedelta(days=5-nowweekday)
         lastsunday = lastsunday.strftime("%Y-%m-%d")
         nextsunday = nextsunday.strftime("%Y-%m-%d")
         
