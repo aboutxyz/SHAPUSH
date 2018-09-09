@@ -61,12 +61,19 @@ for i in shavessellist:
     actsql = r"""select * From snlvessel where id = (select max(id) from snlvessel where trim(replace(VESSELEN, ' ',  ''))=trim(replace("""+r'"'+i.lower()+r'"'+r""",' ','')))"""
     result = session.execute(actsql).fetchall()
     resultslist2.append(result)
+
+resultslist3 = []  
+for i in shavessellist:
+    actsql = r"""select * From sipgkg1 where id = (select max(id) from sipgkg1 where trim(replace(VESSELEN, ' ',  ''))=trim(replace("""+r'"'+i.lower()+r'"'+r""",' ','')))"""
+    result = session.execute(actsql).fetchall()
+    resultslist3.append(result)
+        
+        
 resultall = []
+
 for i in zip(resultslist1,resultslist2):
     if i[0]:
-        print i[0][0][6]
-        print i[1][0][6]
-        if i[0][0][6]==i[1][0][6]:
+        if i[0][0][6]==i[1][0][6].replace(" ", ""):
             _temp = list(i[0][0],)
             _temp.append(i[1][0][-1])
             resultall.append(_temp)
@@ -76,5 +83,13 @@ for i in zip(resultslist1,resultslist2):
             resultall.append(_temp1)
     else:
         resultall.append(list(i[1][0]))
-        
-print resultall[1]
+
+resultallcopy = resultall
+for i in range(len(resultallcopy)):
+    if resultslist3[i]:
+        if resultallcopy[i][6].replace(" ", "")==resultslist3[i][0][4]:
+            resultall[i].append(resultslist3[i][0][5])
+        else:
+            resultall[i].append(" ")
+    else:
+        resultall[i].append(" ")

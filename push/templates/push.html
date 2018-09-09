@@ -20,6 +20,7 @@
 		<th>VESSEL NAME CN</th>
         <th>VOYAGE</th>
 		<th>TERMINAL</th>
+		<th>CY ENTRY TIME</th>
 		<th>ETA</th>
         <th>ETB</th>
 		<th>ETD</th>
@@ -34,6 +35,7 @@
 			<td>{{ j[5]+'/'+j[6]}}</td>
 			<td>{{ j[2]}}</td>
 			<td>{{ j[-1]}}</td>
+			<td>{{ j[-2]}}</td>
 			<td>{% if j[8] !="None" and j[8] !=" " %}
 						{{ j[8] }}
 					{% else %}
