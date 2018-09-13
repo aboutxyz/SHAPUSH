@@ -49,13 +49,13 @@ with open("shavessel.txt","r")as f:
 shavessellist = shavessel.split("\n")
 shavessellist = filter(None,[i.strip() for i in shavessellist])
 
+engine = create_engine('mysql+mysqldb://root:900502@localhost:3306/voyagecheck?charset=utf8')
+DBSession = sessionmaker(bind=engine)
+# 创建Session:
+session = DBSession()
+
 @app.route('/', methods=["GET","POST"])
 def index():
-    engine = create_engine('mysql+mysqldb://root:900502@localhost:3306/voyagecheck?charset=utf8')
-    DBSession = sessionmaker(bind=engine)
-
-    # 创建Session:
-    session = DBSession()
     resultslist1 = []
     for i in shavessellist:
         actsql = r"""select * From sipg1 where id = (select max(id) from sipg1 where trim(replace(VESSELEN, ' ',  ''))=trim(replace("""+r'"'+i.lower()+r'"'+r""",' ','')))"""
@@ -73,7 +73,7 @@ def index():
         result = session.execute(actsql).fetchall()
         resultslist3.append(result)
         
-        
+    session.close()    
     resultall = []
     for i in zip(resultslist1,resultslist2):
         if i[0]:

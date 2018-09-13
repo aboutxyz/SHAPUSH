@@ -80,8 +80,8 @@ class GetLoginSHAVessel:
         "VslModeRBL":"vsl",
         "dlallvsl":"",
         "TxtVoy":"",
-        "TBUsername":"LYNBYY",
-        "TBPassword":"123",
+        "TBUsername":"Singaporeforward",
+        "TBPassword":"aa1107760775",
         "BTLogin":"µÇ Â¼"}
         r= self.s.post(loginurl,data=postdata)
      
