@@ -8,30 +8,11 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 import re
 import datetime
-import logging
-
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
-# create a file handler
-
-handler = logging.FileHandler('/home/www/push/emailtest.log')
-handler.setLevel(logging.INFO)
-
-# create a logging format
-
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-
-# add the handlers to the logger
-
-logger.addHandler(handler)
 
 _user = '107760775@qq'
 _pwd  = "wyimepwevqalgefe"
 #_to   = 'zhaoep@sinolines.com'
-recipients = ['28310231@qq.com', 'chenq@sinolines.com','zhouyn@sinolines.com']
+recipients = ['28310231@qq.com', 'zhouyn@sinolines.com']
 bcc = ["1107760775@qq"]
 
 msg = MIMEMultipart('related')
@@ -69,6 +50,6 @@ try:
     msg['Cc'] = ", ".join(bcc)
     s.sendmail(_user, recipients, msg.as_string())
     s.quit()
-    logger.info('success')
+    print "Success!"
 except smtplib.SMTPException,e:
-    logger.exception("Exception Logged")
+    print "Falied,%s"%e 

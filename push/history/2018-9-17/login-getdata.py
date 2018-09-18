@@ -237,7 +237,7 @@ class GetLoginSHAVessel:
 p=GetLoginSHAVessel()
 p.login("x")
 time.sleep(3)
-with open("/home/www/push/shavessel.txt","wb")as f:
+with open("shavessel.txt","wb")as f:
     for i in p.feed('x')[0]:
         f.write(i+"\r\n")
         

@@ -45,7 +45,7 @@ class SIPG2(Base):
 
 @app.route('/', methods=["GET","POST"])
 def index():
-    with open("/home/www/push/shavessel.txt","r")as f:
+    with open("shavessel.txt","r")as f:
         shavessel = f.read()
 
     shavessellist = shavessel.split("\n")

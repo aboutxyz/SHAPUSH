@@ -1,0 +1,67 @@
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 300-120-444
+127.0.0.1 - - [15/Sep/2018 18:08:33] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/lib/python2.7/site-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/lib/python2.7/site-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/www/push/push.py", line 61, in index
+    result = session.execute(actsql).fetchall()
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/session.py", line 1176, in execute
+    bind, close_with_result=True).execute(clause, params or {})
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/pool.py", line 791, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/pool.py", line 1196, in _do_get
+    self._dec_overflow()
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/pool.py", line 1193, in _do_get
+    return self._create_connection()
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/pool.py", line 674, in __connect
+    connection = pool._invoke_creator(self)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/default.py", line 412, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (_mysql_exceptions.OperationalError) (2002, "Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)") (Background on this error at: http://sqlalche.me/e/e3q8)
