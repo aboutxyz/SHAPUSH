@@ -56,7 +56,7 @@ def index():
     session = DBSession()
     resultslist1 = []
     for i in shavessellist:
-        actsql = r"""select * From sipg2 where trim(replace(VESSELEN, ' ',  ''))=trim(replace("""+r'"'+i.lower()+r'"'+r""",' ',''))"""
+        actsql = r"""select * From sipg2 where trim(replace(VESSELEN, ' ',  ''))=trim(replace("""+r'"'+i.lower()+r'"'+r""",' ',''))"""+r'''ORDER BY id desc'''
         result = session.execute(actsql).fetchall()
         resultlist = []
         bb=len(result)-1

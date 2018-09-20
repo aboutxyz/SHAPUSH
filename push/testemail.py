@@ -28,11 +28,11 @@ handler.setFormatter(formatter)
 
 logger.addHandler(handler)
 
-_user = '107760775@qq'
+_user = '1107760775@qq.com'
 _pwd  = "wyimepwevqalgefe"
 #_to   = 'zhaoep@sinolines.com'
 recipients = ['28310231@qq.com', 'chenq@sinolines.com','zhouyn@sinolines.com']
-bcc = ["1107760775@qq"]
+bcc = ["1107760775@qq.com"]
 
 msg = MIMEMultipart('related')
 # content = MIMEText('<html><body><img src="cid:imageid" alt="imageid"></body></html>','html','utf-8')
@@ -42,7 +42,7 @@ msg['Subject'] = Header(u"船期图片", 'utf-8')
 
 name = str(datetime.date.today())
 
-with open(name+".png","rb")as f:
+with open("/home/www/push/"+name+".png","rb")as f:
     # 设置附件的MIME和文件名，这里是png类型:
     mime = MIMEBase('image', 'png', filename=name+'.png')
     # 加上必要的头信息:
@@ -67,7 +67,9 @@ try:
     msg['To'] = ", ".join(recipients)
     #s.sendmail(_user, _to, msg.as_string())
     msg['Cc'] = ", ".join(bcc)
-    s.sendmail(_user, recipients, msg.as_string())
+    receive = recipients
+    receive.extend(bcc)
+    s.sendmail(_user, receive, msg.as_string())
     s.quit()
     logger.info('success')
 except smtplib.SMTPException,e:
